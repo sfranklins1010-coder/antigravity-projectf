@@ -1,0 +1,46 @@
+# How to Access Your Website on Any Device
+
+When you run `python manage.py runserver 8080`, the website is only accessible on your **local computer**. 
+To make it accessible from any device (like a mobile phone or another laptop), you have two main options:
+
+---
+
+## Option 1: Temporary Public Link (Quick & Easy)
+This method is perfect if you just want to test your website on a mobile phone right now. 
+**Note:** The link will stop working as soon as you turn off your computer or close the terminal.
+
+### Method A: Localhost Tunnel (No Installation Required)
+Open a new terminal in VS Code (`Terminal -> New Terminal`) and run this exact command:
+```bash
+ssh -R 80:localhost:8080 nokey@localhost.run
+```
+*Wait a few seconds, and it will print a web link (e.g., `https://something.lhr.life`). You can open that link on any device in the world to see your live site.*
+
+### Method B: Using Ngrok
+If you want something more robust for testing:
+1. Download and install [Ngrok](https://ngrok.com/).
+2. Run this command in a new terminal:
+```bash
+ngrok http 8080
+```
+*Ngrok will provide a "Forwarding URL" that you can share with anyone.*
+
+---
+
+## Option 2: Truly Permanent Link (Cloud Hosting)
+If you want a **permanent link** that works 24/7 even when your laptop is turned off, you need to deploy your Django project to a cloud hosting provider.
+
+Since this is a Python/Django project, the easiest free options are:
+1. **PythonAnywhere** (Easiest for quick Django deployments)
+2. **Render.com** (Modern, but requires setting up PostgreSQL and GitHub)
+
+### Quick Guide for PythonAnywhere:
+1. Go to [PythonAnywhere](https://www.pythonanywhere.com/) and create a free beginner account.
+2. Upload your project files (`project frank` folder).
+3. Open a bash console on PythonAnywhere and install dependencies:
+   ```bash
+   pip install django pandas scikit-learn
+   ```
+4. Configure the Web tab to point to your [manage.py](file:///c:/Users/ELCOT/Downloads/project%20frank/manage.py) and WSGI file.
+
+*If you would like me to help you deploy the website permanently to PythonAnywhere or Render, just let me know and we can go through the steps together!*
